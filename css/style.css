@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vollkorn', serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --main-color: #BB9152;
+    --darker-color: #101010;
+    --medium-color: #181818;
+    --light-color: #353535;
+    --lighter-color: #909090;
+    --neutral-color: #ffffff;
+
+    font-size: 62.5%;
+}
+
+.u-container {
+     max-width: 1280px;
+     width: 100%;
+     margin: 0 auto;
+     padding: 0 1.5rem;
+}
