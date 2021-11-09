@@ -7,6 +7,7 @@
     font-family: 'Vollkorn', serif;
     text-decoration: none;
     list-style: none;
+    transition: all .3s ease;
 }
 
 :root {
@@ -34,16 +35,15 @@
 }
 
 .l-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     padding-top: 1.5rem;
     min-height: 800px;
     background-image: url(../img/hero-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.l-hero__nav {
-    margin-bottom: 6rem;
 }
 
 .l-hero__navbar {
@@ -83,13 +83,70 @@
 
 .l-hero__info {
     grid-column: 8 / span 4;
+    text-align: center;
+}
+
+.l-hero__info > *:not(:last-child) {
+    margin-bottom: 1.5rem;
 }
 
 .l-hero__title, .l-hero__text {
     text-transform: uppercase;
+    text-align: center;
 }
 
 .l-hero__title {
     font-size: 3rem;
     color: var(--main-color);
+}
+
+.l-hero__text {
+    font-size: 2.7rem;
+    color: var(--neutral-color);
+}
+
+.c-cta-button {
+    display: inline-block;
+    padding: .5rem 5rem;
+    border: 3px solid var(--main-color);
+    font-size: 1.8rem;
+    color: var(--main-color);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.c-cta-button--filled {
+    border: none;
+    background-color: var(--main-color);
+    color: var(--neutral-color);
+}
+
+.c-cta-button:hover {
+    letter-spacing: .1rem;
+}
+
+.l-hero__scroll-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 6rem;
+}
+
+.l-hero__scroll-img:first-child {
+    margin-bottom: .5rem;
+}
+
+.l-hero__scroll-img:last-child {
+    animation-name: scrolldown;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scrolldown {
+    0%{transform: translateY(0)}
+    5%{transform: translateY(.5rem)}
+    10%{transform: translateY(0)}
+    15%{transform: translateY(.5rem)}
+    20%{transform: translateY(0)}
 }
