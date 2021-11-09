@@ -44,6 +44,13 @@
     background-image: url(../img/hero-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+}
+
+.l-hero__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .l-hero__navbar {
@@ -70,6 +77,28 @@
 .l-hero__nav-item:last-child .l-hero__nav-link {
     color: var(--main-color);
     font-size: 2.2rem;
+}
+
+.l-hero__burger-button {
+    display: none;
+    flex-direction:column;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.l-hero__burger-bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+.l-hero__burger-button:hover {
+    transform: rotate(180deg);
+    transform-origin: center;
+}
+
+.l-hero__burger-bar:not(:last-child) {
+    margin-bottom: 3px;
 }
 
 .l-hero__content {
@@ -122,7 +151,7 @@
 }
 
 .c-cta-button:hover {
-    letter-spacing: .1rem;
+    letter-spacing: .025rem;
 }
 
 .l-hero__scroll-icon {
