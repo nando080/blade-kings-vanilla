@@ -84,6 +84,9 @@
     flex-direction:column;
     height: fit-content;
     cursor: pointer;
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
 }
 
 .l-hero__burger-bar {
@@ -99,6 +102,18 @@
 
 .l-hero__burger-bar:not(:last-child) {
     margin-bottom: 3px;
+}
+
+.l-hero__burger-button.is-active > .l-hero__burger-bar:nth-child(2) {
+    opacity: .0;
+}
+
+.l-hero__burger-button.is-active > .l-hero__burger-bar:first-child {
+    transform: rotate(45deg) translateY(4.5px) translateX(4px);
+}
+
+.l-hero__burger-button.is-active > .l-hero__burger-bar:last-child {
+    transform: rotate(-45deg) translateY(-4.5px) translateX(4px);
 }
 
 .l-hero__content {
