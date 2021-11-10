@@ -15,14 +15,17 @@
 }
 
 @media (max-width: 960px) {
+
+    .u-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
     
     .l-hero__navbar {
-        display: none;
         width: 100%;
         min-height: 100vh;
         height: 100%;
         position: fixed;
-        top: 0;
+        top: -100%;
         left: 0;
         right: 0;
         background-color: var(--darker-color);
@@ -31,7 +34,7 @@
     }
 
     .l-hero__navbar.is-active {
-        display: flex;
+        top: 0;
     }
 
     .l-hero__nav-item:last-child {
@@ -57,6 +60,21 @@
 
     .l-hero__burger-button {
         display: flex;
+    }
+
+    .l-hero__logo {
+        grid-column: 2 / span 2;
+        grid-row-start: 1;
+    }
+
+    .l-hero__logo img {
+        width: 100%;
+    }
+
+    .l-hero__info {
+        grid-column: 2 / span 2;
+        grid-row-start: 2;
+        text-align: center;
     }
 
 }
