@@ -246,12 +246,8 @@ body {
     transform: translateX(calc(-100% - 1.5rem));
 }
 
-.l-about__button.l-about__button--prev img {
-    transform: rotate(90deg);
-}
-
 .l-about__button.l-about__button--prev:hover > img {
-    transform: rotate(90deg) scale(.85);
+    transform: scale(.85);
 }
 
 .l-about__button.l-about__button--next {
@@ -262,11 +258,11 @@ body {
 }
 
 .l-about__button.l-about__button--next img {
-    transform: rotate(-90deg);
+    transform: rotate(180deg);
 }
 
 .l-about__button.l-about__button--next:hover > img {
-    transform: rotate(-90deg) scale(.85);
+    transform: rotate(180deg) scale(.85);
 }
 
 .l-about__slide {
@@ -288,7 +284,7 @@ body {
 
 .l-about__slide-img img {
     width: 100%;
-    height: auto;
+    height: fit-content;
 }
 
 .l-about__slide-img:before {
