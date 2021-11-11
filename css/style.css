@@ -273,7 +273,7 @@ body {
     display: none;
     position: relative;
     animation-name: fadeslide;
-    animation-duration: .5s;
+    animation-duration: 1s;
 }
 
 .l-about__slide.is-active {
@@ -335,12 +335,14 @@ body {
 }
 
 @keyframes fadeslide {
-    to {
+    0% {
         filter: blur(10px);
         opacity: 0;
     }
-    from {
-        filter: blur(0);
+    50% {
         opacity: 1;
+    }
+    100% {
+        filter: blur(0);
     }
 }
