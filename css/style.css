@@ -12,6 +12,7 @@
 
 :root {
     --main-color: #BB9152;
+    --main-color-rgb-value: 187, 145, 82;
     --darker-color: #101010;
     --medium-color: #181818;
     --light-color: #353535;
@@ -215,50 +216,43 @@ body {
     overflow: hidden;
 }
 
-.l-about__slide-container:hover > .l-about__button.l-about__button--prev {
-    transform: translateX(0);
-}
-
-.l-about__slide-container:hover > .l-about__button.l-about__button--next {
-    transform: translateX(0);
-}
-
 .l-about__button {
     display: flex;
-    position: absolute;
     justify-content: center;
-    align-content: center;
-    width: 7%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(16, 16, 16, .9), rgba(16, 16, 16, .6));
-    z-index: 300;
+    align-items: center;
+    width: 6.5rem;
+    height: 6.5rem;
+    background-color: rgba(var(--main-color-rgb-value),.65);
+    border-radius: 1rem;
     cursor: pointer;
+    z-index: 100;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.l-about__button:hover {
+    background-color: rgba(var(--main-color-rgb-value),1)
 }
 
 .l-about__button img {
-    width: 3.5rem;
+    height: 60%;
 }
 
 .l-about__button.l-about__button--prev {
-    top: 0;
-    bottom: 0;
-    left: 1.5rem;
-    transform: translateX(calc(-100% - 1.5rem));
+    left: 0;
+}
+
+.l-about__button.l-about__button--next {
+    right: 0;
+}
+
+.l-about__button.l-about__button--next > img {
+    transform: rotate(180deg);
 }
 
 .l-about__button.l-about__button--prev:hover > img {
     transform: scale(.85);
-}
-
-.l-about__button.l-about__button--next {
-    top: 0;
-    bottom: 0;
-    right: 1.5rem;
-    transform: translateX(calc(100% + 1.5rem));
-}
-
-.l-about__button.l-about__button--next img {
-    transform: rotate(180deg);
 }
 
 .l-about__button.l-about__button--next:hover > img {
