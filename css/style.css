@@ -95,7 +95,7 @@ body {
     position: absolute;
     right: 3rem;
     top: 3rem;
-    z-index: 100;
+    z-index: 200;
 }
 
 .l-hero__burger-bar {
@@ -335,4 +335,97 @@ body {
     100% {
         filter: blur(0);
     }
+}
+
+/* SERVICES */
+.l-services {
+    margin-bottom: 6rem;
+}
+
+.c-section-title {
+    color: var(--main-color);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.c-section-title::before, .c-section-title::after {
+    content: "♦ ♦";
+    font-size: 1.7rem;
+}
+
+.c-section-title::before {
+    margin-right: 1.5rem;
+}
+
+.c-section-title::after {
+    margin-left: 1.5rem;
+}
+
+.l-services__item {
+    display: flex;
+    width: 100%;
+    min-width: 175px;
+    gap: 3rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    grid-column: span 3;
+    position: relative;
+    background-color: var(--medium-color);
+}
+
+.l-services__item > *:not(:first-child) {
+    z-index: 100;
+}
+
+.l-services__bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 100;
+    transition-duration: .7s;
+}
+
+.l-services__item:hover > .l-services__bg {
+    opacity: .25;
+}
+
+.l-services__cut > .l-services__bg {
+    background-image: url(../img/corte.jpg);
+}
+
+.l-services__maintenance > .l-services__bg {
+    background-image: url(../img/manutencao.jpg);
+}
+
+.l-services__shave > .l-services__bg {
+    background-image: url(../img/barbear.jpg);
+}
+
+.l-services__care > .l-services__bg {
+    background-image: url(../img/cuidados.jpg);
+}
+
+.l-services__item hr {
+    width: 100%;
+    color: var(--main-color);
+}
+
+.l-services__item-title {
+    color: var(--main-color);
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+
+.l-services__item-text {
+    text-align: center;
+    color: var(--neutral-color);
+    font-size: 1.4rem;
 }

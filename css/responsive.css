@@ -30,7 +30,7 @@
         right: 0;
         background-color: var(--darker-color);
         background-blend-mode: multiply;
-        z-index: 10;
+        z-index: 200;
     }
 
     .l-hero__navbar.is-active {
@@ -95,6 +95,18 @@
     .l-about__slide-title {
         margin-bottom: 1.5rem;
         margin-top: -3rem;
+    }
+
+    .l-services__item {
+        grid-column: span 1;
+    }
+
+}
+
+@media (max-width: 820px) {
+
+    .l-services__item {
+        grid-column: span 2;
     }
 
 }
