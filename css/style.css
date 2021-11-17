@@ -440,11 +440,14 @@ body {
 }
 
 .l-gallery__image-gallery {
-    grid-auto-flow: column;
-    grid-template-rows: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
 }
 
 .l-gallery__image {
+    width: 100%;
+    height: auto;
     filter: grayscale(1);
     transition-duration: .7s;
     cursor: pointer;
