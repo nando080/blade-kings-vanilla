@@ -430,27 +430,35 @@ body {
     font-size: 1.4rem;
 }
 
-/* IMAGE gallery */
+/* IMAGE GALLERY */
 .l-gallery {
     margin-bottom: 6rem;
 }
 
 .l-gallery__container {
     margin-bottom: 3rem;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
     gap: 1.5rem;
+    /* overflow-x: hidden; */
 }
 
-.l-gallery__image-gallery {
+.l-gallery__track {
+    background-color: pink;
+    position: relative;
+    display: flex;
+}
+
+.l-gallery__item {
     min-width:100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
 }
 
-.l-gallery__image {
+.l-gallery__item:not(:first-child) {
+    margin-left: 3rem;
+}
+
+.l-gallery__img {
     width: 100%;
     height: auto;
     filter: grayscale(1);
@@ -458,7 +466,7 @@ body {
     cursor: pointer;
 }
 
-.l-gallery__image:hover {
+.l-gallery__img:hover {
     filter: grayscale(0);
 }
 
@@ -505,5 +513,3 @@ body {
 .l-gallery__button.l-gallery__button--next:hover {
     transform: rotate(180deg) scale(.95);
 }
-
-/* TODO - CORRIGIR POSICIONAMENTO DAS GALERIAS COMO ABSOLUTO E POSICIONAR TODAS EM JS PREPARANDO PARA ANIMAR */
