@@ -437,9 +437,14 @@ body {
 
 .l-gallery__container {
     margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    gap: 1.5rem;
 }
 
 .l-gallery__image-gallery {
+    min-width:100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;

@@ -76,8 +76,6 @@ const insertGalleriesIntoDOM = () => {
     galleryContainerEl.innerHTML = buildImageGalleries()
 }
 
-insertGalleriesIntoDOM()
-
 let changeSlideInterval = setInterval(() => {
     incrementSlideIndex()
     changeSlide()
@@ -112,3 +110,9 @@ navLinksEl.forEach(link => {
     navBarEl.classList.remove('is-active')
     })
 })
+
+window.addEventListener('resize', () => {
+    insertGalleriesIntoDOM()
+})
+
+insertGalleriesIntoDOM()
