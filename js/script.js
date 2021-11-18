@@ -1,11 +1,12 @@
 const burgerButtonEl = document.querySelector('.l-hero__burger-button')
 const navBarEl = document.querySelector('.l-hero__navbar')
+const navLinksEl = document.querySelectorAll('.l-hero__nav-link')
 const slidesEl = document.querySelectorAll('.l-about__slide')
 const slideButtonsEl = document.querySelectorAll('.l-about__button')
-
-//TODO PEGAR BOTÕES DO SLIDER E IMPLEMENTAR FUNCIONALIDADE
+const galleryContainerEl = document.querySelector('.l-gallery__container')
 
 const slideChangeTime = 5000
+const totalImagesInGalleries = 24
 
 let currentSlideIndex = 1
 
@@ -15,7 +16,6 @@ const incrementSlideIndex = () => {
     } else {
         currentSlideIndex = 1
     }
-    console.log(currentSlideIndex);
 }
 
 const decrementSlideIndex = () => {
@@ -24,7 +24,6 @@ const decrementSlideIndex = () => {
     } else {
         currentSlideIndex = 3
     }
-    console.log(currentSlideIndex);
 }
 
 const changeSlide = () => {
@@ -33,6 +32,51 @@ const changeSlide = () => {
     })
     slidesEl[currentSlideIndex - 1].classList.add('is-active')
 }
+
+const getNumberOfImagesPerGallery = size => {
+    if (size >= 1140) {
+        return 12
+    }else if (size >= 820) {
+        return 6
+    } else {
+        return 4
+    }
+}
+
+const buildImageGalleries = () => {
+    const containerSize = galleryContainerEl.getBoundingClientRect().width
+    const numberOfGalleries = totalImagesInGalleries / getNumberOfImagesPerGallery(containerSize)
+
+    let currentImage = 1
+
+    const images = []
+
+    for (let i = 0; i < numberOfGalleries; i++) {
+        let imageString = ''
+        for (let j = 0; j < getNumberOfImagesPerGallery(containerSize); j++) {
+            const currentIndex = currentImage >= 10 ? currentImage : `0${currentImage}`
+            imageString += `
+            <img class="l-gallery__image" src="img/gallery/img-${currentIndex}-thumb.jpg" data-index="${currentImage}">
+            `
+            currentImage++
+        }
+        images.push(imageString)
+    }
+
+    const galleriesString = images.reduce((accumulator, image) => {
+        return accumulator + `
+        <div class="l-gallery__image-gallery">${image}</div>
+        `
+    }, '')
+
+    return galleriesString
+}
+
+const insertGalleriesIntoDOM = () => {
+    galleryContainerEl.innerHTML = buildImageGalleries()
+}
+
+insertGalleriesIntoDOM()
 
 let changeSlideInterval = setInterval(() => {
     incrementSlideIndex()
@@ -62,4 +106,9 @@ burgerButtonEl.addEventListener('click', () => {
     navBarEl.classList.toggle('is-active')
 })
 
-console.log(slidesEl.length);
+navLinksEl.forEach(link => {
+    link.addEventListener('click', () => {
+        burgerButtonEl.classList.remove('is-active')
+    navBarEl.classList.remove('is-active')
+    })
+})

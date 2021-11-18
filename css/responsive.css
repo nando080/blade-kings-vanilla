@@ -101,17 +101,16 @@
         grid-column: span 1;
     }
 
-    .l-gallery__image-gallery {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem
-    }
-
 }
 
 @media (max-width: 820px) {
 
     .l-services__item {
         grid-column: span 2;
+    }
+
+    .l-gallery__image-gallery {
+        gap: 1.5rem;
     }
 }
 
