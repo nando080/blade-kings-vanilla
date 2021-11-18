@@ -34,6 +34,18 @@ const changeSlide = () => {
     slidesEl[currentSlideIndex - 1].classList.add('is-active')
 }
 
+const getSlideGalleryWidth = () => galleryContainerEl.getBoundingClientRect().width
+
+const getNumberOfImagesPerGallery = () => {
+    if (getSlideGalleryWidth() > 1140) {
+        return 12
+    } else if (getSlideGalleryWidth() > 840) {
+        return 6
+    } else {
+        return 4
+    }
+}
+
 let changeSlideInterval = setInterval(() => {
     incrementSlideIndex()
     changeSlide()

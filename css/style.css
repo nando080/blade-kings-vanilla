@@ -438,7 +438,7 @@ body {
 .l-gallery__container {
     margin-bottom: 3rem;
     gap: 1.5rem;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 .l-gallery__track {
