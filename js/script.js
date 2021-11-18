@@ -4,6 +4,7 @@ const navLinksEl = document.querySelectorAll('.l-hero__nav-link')
 const slidesEl = document.querySelectorAll('.l-about__slide')
 const slideButtonsEl = document.querySelectorAll('.l-about__button')
 const galleryContainerEl = document.querySelector('.l-gallery__container')
+const indexButtonsContainerEl = document.querySelector('.l-gallery__index-button-container')
 
 const slideChangeTime = 5000
 const totalImagesInGalleries = 24
@@ -43,17 +44,19 @@ const getNumberOfImagesPerGallery = size => {
     }
 }
 
-const buildImageGalleries = () => {
-    const containerSize = galleryContainerEl.getBoundingClientRect().width
-    const numberOfGalleries = totalImagesInGalleries / getNumberOfImagesPerGallery(containerSize)
+const getImageGalleryContainerSize = () => galleryContainerEl.getBoundingClientRect().width
 
+const getCurrentNumberOfGalleries = () => 
+    totalImagesInGalleries / getNumberOfImagesPerGallery(getImageGalleryContainerSize())
+
+const buildImageGalleries = () => {
     let currentImage = 1
 
     const images = []
 
-    for (let i = 0; i < numberOfGalleries; i++) {
+    for (let i = 0; i < getCurrentNumberOfGalleries(); i++) {
         let imageString = ''
-        for (let j = 0; j < getNumberOfImagesPerGallery(containerSize); j++) {
+        for (let j = 0; j < getNumberOfImagesPerGallery(getImageGalleryContainerSize()); j++) {
             const currentIndex = currentImage >= 10 ? currentImage : `0${currentImage}`
             imageString += `
             <img class="l-gallery__image" src="img/gallery/img-${currentIndex}-thumb.jpg" data-index="${currentImage}">
@@ -75,6 +78,22 @@ const buildImageGalleries = () => {
 const insertGalleriesIntoDOM = () => {
     galleryContainerEl.innerHTML = buildImageGalleries()
 }
+
+const createIndexButton = index => {
+    const indexBtn = document.createElement("div")
+    indexBtn.classList.add('l-gallery__button')
+    indexBtn.dataset.index = index
+    return indexBtn
+}
+
+const fillIndexButtonContainer = () => {
+    indexButtonsContainerEl.innerHTML = ''
+    for (let i = 0; i < getCurrentNumberOfGalleries(); i++) {
+        indexButtonsContainerEl.appendChild(createIndexButton(i + 1))
+    }
+}
+
+console.log(createIndexButton(1))
 
 let changeSlideInterval = setInterval(() => {
     incrementSlideIndex()
@@ -113,6 +132,8 @@ navLinksEl.forEach(link => {
 
 window.addEventListener('resize', () => {
     insertGalleriesIntoDOM()
+    fillIndexButtonContainer()
 })
 
 insertGalleriesIntoDOM()
+fillIndexButtonContainer()

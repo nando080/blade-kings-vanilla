@@ -462,7 +462,8 @@ body {
     filter: grayscale(0);
 }
 
-.l-gallery__index {
+.l-gallery__index,
+.l-gallery__index-button-container {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
@@ -504,3 +505,5 @@ body {
 .l-gallery__button.l-gallery__button--next:hover {
     transform: rotate(180deg) scale(.95);
 }
+
+/* TODO - CORRIGIR POSICIONAMENTO DAS GALERIAS COMO ABSOLUTO E POSICIONAR TODAS EM JS PREPARANDO PARA ANIMAR */
