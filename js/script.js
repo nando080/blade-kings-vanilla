@@ -4,6 +4,7 @@ const navLinksEl = document.querySelectorAll('.l-hero__nav-link')
 const slidesEl = document.querySelectorAll('.l-about__slide')
 const slideButtonsEl = document.querySelectorAll('.l-about__button')
 const galleryContainerEl = document.querySelector('.l-gallery__container')
+const galleryTrackEl = document.querySelector('.l-gallery__track')
 const indexButtonsContainerEl = document.querySelector('.l-gallery__index-button-container')
 
 const slideChangeTime = 5000
@@ -34,6 +35,11 @@ const changeSlide = () => {
     slidesEl[currentSlideIndex - 1].classList.add('is-active')
 }
 
+let changeSlideInterval = setInterval(() => {
+    incrementSlideIndex()
+    changeSlide()
+}, slideChangeTime)
+
 const getSlideGalleryWidth = () => galleryContainerEl.getBoundingClientRect().width
 
 const getNumberOfImagesPerGallery = () => {
@@ -46,10 +52,45 @@ const getNumberOfImagesPerGallery = () => {
     }
 }
 
-let changeSlideInterval = setInterval(() => {
-    incrementSlideIndex()
-    changeSlide()
-}, slideChangeTime)
+const getNumberOfGalleries = () => totalImagesInGalleries / getNumberOfImagesPerGallery()
+
+const createImageElement = index => {
+    const imgElement = document.createElement('img')
+    const formatedIndex = index >= 10 ? index : `0${index}`
+    imgElement.src = `img/gallery/img-${formatedIndex}-thumb.jpg`
+    imgElement.dataset.img = `${index}`
+    imgElement.classList.add('l-gallery__img')
+    return imgElement
+}
+
+const createGallery = index => {
+    const gallery = document.createElement('div')
+    gallery.classList.add('l-gallery__item')
+    gallery.dataset.gallery = `${index}`
+    return gallery
+}
+
+const buildGalleries = () => {
+    let currentImage = 1
+    const galleries = []
+    for (let galleryIndex = 0; galleryIndex < getNumberOfGalleries(); galleryIndex++) {
+        const currentGallery = createGallery(galleryIndex + 1)
+        for (let imageIndex = 0; imageIndex < getNumberOfImagesPerGallery(); imageIndex++) {
+            currentGallery.appendChild(createImageElement(currentImage))
+            currentImage++
+        }
+        galleries.push(currentGallery)
+    }
+    return galleries
+}
+
+const insertGalleriesIntoDom = () => {
+    galleryTrackEl.innerHTML = ''
+    const allGalleries = buildGalleries()
+    allGalleries.forEach(gallery => {
+        galleryTrackEl.appendChild(gallery)
+    })
+}
 
 slideButtonsEl.forEach(button => {
     button.addEventListener('click', () => {
@@ -80,3 +121,7 @@ navLinksEl.forEach(link => {
     navBarEl.classList.remove('is-active')
     })
 })
+
+window.addEventListener('resize', insertGalleriesIntoDom)
+
+insertGalleriesIntoDom()
