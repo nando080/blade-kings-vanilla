@@ -84,12 +84,31 @@ const buildGalleries = () => {
     return galleries
 }
 
-const insertGalleriesIntoDom = () => {
+const insertGalleriesIntoDOM = () => {
     galleryTrackEl.innerHTML = ''
     const allGalleries = buildGalleries()
     allGalleries.forEach(gallery => {
         galleryTrackEl.appendChild(gallery)
     })
+}
+
+const createGalleryIndexButton = index => {
+    const button = document.createElement('div')
+    button.classList.add('l-gallery__button')
+    button.dataset.gallery = index
+    return button
+}
+
+const insertGalleryIndexButtonsIntoDOM = () => {
+    const numberOfGalleries = getNumberOfGalleries()
+    indexButtonsContainerEl.innerHTML = ''
+    for (let i = 0; i < numberOfGalleries; i++) {
+        const indexButton = createGalleryIndexButton(i + 1)
+        if (i === 0) {
+            indexButton.classList.add('is-active')
+        }
+        indexButtonsContainerEl.appendChild(indexButton)
+    }
 }
 
 slideButtonsEl.forEach(button => {
@@ -122,6 +141,10 @@ navLinksEl.forEach(link => {
     })
 })
 
-window.addEventListener('resize', insertGalleriesIntoDom)
+window.addEventListener('resize', () => {
+    insertGalleriesIntoDOM()
+    insertGalleryIndexButtonsIntoDOM()
+})
 
-insertGalleriesIntoDom()
+insertGalleriesIntoDOM()
+insertGalleryIndexButtonsIntoDOM()
