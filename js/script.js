@@ -6,11 +6,14 @@ const slideButtonsEl = document.querySelectorAll('.l-about__button')
 const galleryContainerEl = document.querySelector('.l-gallery__container')
 const galleryTrackEl = document.querySelector('.l-gallery__track')
 const indexButtonsContainerEl = document.querySelector('.l-gallery__index-button-container')
+const prevGalleryButtonEl = document.querySelector('.l-gallery__button--prev')
+const nextGalleryButtonEl = document.querySelector('.l-gallery__button--next')
 
 const slideChangeTime = 5000
 const totalImagesInGalleries = 24
 
 let currentSlideIndex = 1
+let currentImageGallery = 1
 
 const incrementSlideIndex = () => {
     if (currentSlideIndex < slidesEl.length) {
@@ -111,6 +114,17 @@ const insertGalleryIndexButtonsIntoDOM = () => {
     }
 }
 
+//TODO : CORRIGIR DESLOCAMENTO GALERIAS
+
+const changeImageGallery = index => {
+    if (index !== currentImageGallery) {
+        const displacement = getSlideGalleryWidth()
+        const displacementOrientation = index > currentImageGallery ? '-' : '+'
+        galleryTrackEl.style.transform = `translateX(calc(-${displacement * index}px)`
+        currentImageGallery = index
+    }
+}
+
 slideButtonsEl.forEach(button => {
     button.addEventListener('click', () => {
         clearInterval(changeSlideInterval)
@@ -139,6 +153,26 @@ navLinksEl.forEach(link => {
         burgerButtonEl.classList.remove('is-active')
     navBarEl.classList.remove('is-active')
     })
+})
+
+prevGalleryButtonEl.addEventListener('click', () => {
+    let currentIndex = 0
+    if (currentImageGallery > 0) {
+        currentIndex = currentImageGallery - 1
+    } else {
+        currentIndex = 0
+    }
+    changeImageGallery(currentIndex)
+})
+
+nextGalleryButtonEl.addEventListener('click', () => {
+    let currentIndex = 0
+    if (currentImageGallery < getNumberOfGalleries()) {
+        currentIndex = currentImageGallery + 1
+    } else {
+        currentIndex = getNumberOfGalleries()
+    }
+    changeImageGallery(currentIndex)
 })
 
 window.addEventListener('resize', () => {
