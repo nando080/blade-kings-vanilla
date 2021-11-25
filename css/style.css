@@ -513,3 +513,31 @@ body {
 .l-gallery__button.l-gallery__button--next:hover {
     transform: rotate(180deg) scale(.95);
 }
+
+/* TEAM */
+
+.l-team {
+    background-color: var(--medium-color);
+    padding: 3rem 0;
+}
+
+.l-team__container {
+    display: flex;
+}
+
+.l-team__info-container {
+    background-color: var(--main-color);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.l-team__name {
+    font-size: 2.2rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--medium-color);
+}
+
+.l-team__social {
+    font-size: 2rem;
+}
