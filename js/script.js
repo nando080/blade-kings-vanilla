@@ -95,10 +95,30 @@ const insertGalleriesIntoDOM = () => {
     })
 }
 
+const changeActiveGalleryButton = index => {
+    document.querySelectorAll('.l-gallery__button--index').forEach(button => {
+        button.classList.remove('is-active')
+    })
+    document.querySelectorAll('.l-gallery__button--index')[index - 1].classList.add('is-active')
+}
+
+const indexButtonGalleryClick = event => {
+    const index = event.target.dataset.gallery
+    changeImageGallery(index)
+    indexButtonsContainerEl.querySelectorAll('.l-gallery__button').forEach(btn => {
+        btn.classList.remove('is-active')
+    })
+    event.target.classList.add('is-active')
+    currentImageGallery = Number(index)
+    console.log(index, currentImageGallery)
+}
+
 const createGalleryIndexButton = index => {
     const button = document.createElement('div')
     button.classList.add('l-gallery__button')
+    button.classList.add('l-gallery__button--index')
     button.dataset.gallery = index
+    button.addEventListener('click', indexButtonGalleryClick)
     return button
 }
 
@@ -114,13 +134,11 @@ const insertGalleryIndexButtonsIntoDOM = () => {
     }
 }
 
-//TODO : CORRIGIR DESLOCAMENTO GALERIAS
-
 const changeImageGallery = index => {
     if (index !== currentImageGallery) {
         const displacement = getSlideGalleryWidth()
         const displacementOrientation = index > currentImageGallery ? '-' : '+'
-        galleryTrackEl.style.transform = `translateX(calc(-${displacement * index}px)`
+        galleryTrackEl.style.transform = `translateX(calc(-${displacement * (index - 1)}px)`
         currentImageGallery = index
     }
 }
@@ -163,6 +181,9 @@ prevGalleryButtonEl.addEventListener('click', () => {
         currentIndex = 0
     }
     changeImageGallery(currentIndex)
+    if (currentIndex >= 1) {
+        changeActiveGalleryButton(currentIndex)
+    }
 })
 
 nextGalleryButtonEl.addEventListener('click', () => {
@@ -173,6 +194,7 @@ nextGalleryButtonEl.addEventListener('click', () => {
         currentIndex = getNumberOfGalleries()
     }
     changeImageGallery(currentIndex)
+    changeActiveGalleryButton(currentIndex)
 })
 
 window.addEventListener('resize', () => {
