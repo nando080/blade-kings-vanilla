@@ -101,6 +101,10 @@
         grid-column: span 1;
     }
 
+    .l-team__container {
+        overflow-x: scroll;
+    }
+
 }
 
 @media (max-width: 820px) {
