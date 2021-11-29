@@ -519,10 +519,23 @@ body {
 .l-team {
     background-color: var(--medium-color);
     padding: 3rem 0;
+    margin-bottom: 6rem;
 }
 
 .l-team__container {
     display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+    overflow-x: scroll;
+}
+
+.l-team__item {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+.l-team__img {
+    width: 100%;
 }
 
 .l-team__info-container {
