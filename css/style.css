@@ -442,7 +442,6 @@ body {
 }
 
 .l-gallery__track {
-    background-color: pink;
     position: relative;
     display: flex;
 }
@@ -552,4 +551,51 @@ body {
 
 .l-team__social {
     font-size: 2rem;
+}
+
+
+/* PRICES */
+.l-prices {
+    width: 100%;
+    margin-bottom: 6rem;
+    display: flex;
+    justify-content: center;
+}
+
+.l-prices__img-container {
+    width: 50%;
+    background-color: pink;
+    background-image: url(../img/prices.jpg);
+    background-size: cover;
+    background-position: left;
+}
+
+.l-prices__info-container {
+    width: 50%;
+    background-color: var(--medium-color);
+    padding: 1.5rem 3rem;
+}
+
+.l-prices__list {
+    margin-bottom: 3rem;
+}
+
+.l-prices__item {
+    background-color: pink;
+}
+
+.l-prices__text {
+    color: var(--neutral-color);
+    font-size: 2.2rem;
+    font-weight: 100;
+}
+
+.l-price__value {
+    color: red;
+    text-align: right;
+}
+
+.l-prices__info-container > .c-cta-button {
+    width: 100%;
+    padding: 1rem;
 }
