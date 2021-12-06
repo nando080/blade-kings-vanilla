@@ -116,6 +116,20 @@
     .l-gallery__image-gallery {
         gap: 1.5rem;
     }
+
+    .l-prices {
+        flex-direction: column;
+    }
+
+    .l-prices__img-container {
+        width: 100%;
+        height: 25rem;
+        background-position: top;
+    }
+
+    .l-prices__info-container {
+        width: 100%;
+    }
 }
 
 @media (max-width: 700px) {
@@ -138,6 +152,10 @@
         grid-template-columns: 1fr 1fr;
     }
 
+    .l-prices__list > * {
+        margin-bottom: 1.5rem;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -152,6 +170,17 @@
 
     .l-about__slide-container {
         min-height: 650px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .l-prices__info-container > .c-section-title::after {
+        display: none;
+    }
+
+    .l-prices__info-container > .c-section-title::before {
+        display: none;
     }
 
 }

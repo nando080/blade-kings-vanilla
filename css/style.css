@@ -580,8 +580,13 @@ body {
     margin-bottom: 3rem;
 }
 
+.l-prices__list > * {
+    margin-bottom: 3rem;
+}
+
 .l-prices__item {
-    background-color: pink;
+    display: flex;
+    justify-content: space-between;
 }
 
 .l-prices__text {
