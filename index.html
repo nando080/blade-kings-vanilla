@@ -302,6 +302,49 @@
         </div>
 
     </section>
+
+    <section class="l-schedule u-container">
+
+        <h1 class="c-section-title">agende um horário</h1>
+
+        <form action="" class="l-schedule__form">
+
+            <div class="l-schedule__input-box">
+                <input type="text" name="name" class="l-schedule__input" id="name" placeholder="Nome">
+                <p class="l-schedule__error-message">Erro no input</p>
+            </div>
+            <div class="l-schedule__input-box">
+                <input type="tel" name="phone" class="l-schedule__input" id="phone" placeholder="(34)9999-0000">
+                <p class="l-schedule__error-message">Erro no input</p>
+            </div>
+            <div class="l-schedule__input-box">
+                <input type="email" name="email" class="l-schedule__input" id="email" placeholder="email@email.com">
+                <p class="l-schedule__error-message">Erro no input</p>
+            </div>
+            <div class="l-schedule__input-box">
+                <select name="services" class="l-schedule__input">
+                <option class="l-schedule__option" value="" disabled selected>Serviço</option>
+                <option class="l-schedule__option" value="">Corte / manutenção cabelo</option>
+                <option class="l-schedule__option" value="">Corte / manutenção barba</option>
+                <option class="l-schedule__option" value="">Hidratação cabelo</option>
+                <option class="l-schedule__option" value="">Hidratação barba</option>
+                <option class="l-schedule__option" value="">Selagem</option>
+            </select>
+            <p class="l-schedule__error-message">Erro no input</p>
+            </div>
+            <div class="l-schedule__input-box">
+                <input type="datetime-local" name="date" class="l-schedule__input" id="date">
+                <p class="l-schedule__error-message">Erro no input</p>
+            </div>
+            <div class="l-schedule__input-box">
+                <p class="l-schedule__error-message">Erro no input</p>
+                <textarea name="observations" class="l-schedule__input" id="" cols="30" rows="10" placeholder="Obervações"></textarea> 
+            </div>
+
+            <input type="submit" value="agendar horário" class="c-cta-button c-cta-button--filled">
+        </form>
+
+    </section>
     
     <script src="js/script.js"></script>
 </body>

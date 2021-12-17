@@ -604,3 +604,81 @@ body {
     width: 100%;
     padding: 1rem;
 }
+
+.l-schedule {
+    margin-bottom: 6rem;
+    position: relative;
+    background-image: url(../img/form-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 3rem;
+}
+
+.l-schedule__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.l-schedule__input-box {
+    width: calc(50% - .75rem);
+    margin-bottom: .75rem;
+}
+
+.l-schedule__input-box:first-child,
+.l-schedule__input-box:nth-child(6) {
+    width: 100%;
+}
+
+.l-schedule__input {
+    width: 100%;
+    padding: .75rem;
+    background: transparent;
+    outline: none;
+    border: 1.5px solid var(--lighter-color);
+    color: var(--lighter-color);
+    font-size: 1.8rem;
+}
+
+.l-schedule__input:focus{
+    border-color: var(--main-color);
+    color: var(--main-color);
+    background-color: rgba(255,255,255,.05);
+}
+
+.l-schedule__input:focus::placeholder {
+    color: var(--main-color);
+}
+
+.l-schedule__input--error,
+.l-schedule__input--error:focus {
+    border-color: rgb(255, 59, 59);
+    color: rgb(255, 59, 59);
+}
+
+.l-schedule__input--error::placeholder {
+    color: rgb(255, 59, 59);
+}
+
+.l-schedule__error-message {
+    font-size: 1.2rem;
+    margin-top: .5rem;
+    display: none;
+}
+
+.l-schedule__error-message.is-active {
+    display: block;
+    color: rgb(255, 59, 59);
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.l-schedule__form > .c-cta-button {
+    width: 50%;
+    padding: 1rem;
+    margin: 3rem auto;
+    cursor: pointer;
+}
