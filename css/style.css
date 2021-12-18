@@ -22,6 +22,10 @@
     font-size: 62.5%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--darker-color);
 }
@@ -723,7 +727,7 @@ body {
 }
 
 .l-contact__nav-link i {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
 }
 
 .l-contact__map {
@@ -753,9 +757,10 @@ body {
     margin-left: 6rem;
 }
 
-.l-footer__nav-item + .l-footer__nav-item,
-.l-footer__nav-item:first-child{
-    margin-bottom: .75rem;
+.l-footer__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .l-footer__nav-link {
@@ -768,4 +773,8 @@ body {
     color: var(--main-color);
     font-size: 1.7rem;
     margin-left: 3rem;
+}
+
+.l-footer__nav-link--phone i {
+    margin-right: .75rem;
 }
