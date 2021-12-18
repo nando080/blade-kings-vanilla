@@ -164,6 +164,19 @@
         width: 80%;
     }
 
+    .l-contact {
+        flex-direction: column;
+    }
+
+    .l-contact__info-container,
+    .l-contact__map {
+        width: 100%;
+    }
+
+    .l-contact__map {
+        min-height: 30rem;
+    }
+
 }
 
 @media (max-width: 450px) {

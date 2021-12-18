@@ -705,6 +705,7 @@ body {
 }
 
 .l-contact__logo {
+    width: 90%;
     max-width: 30rem;
 }
 
