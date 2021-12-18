@@ -726,7 +726,6 @@ body {
 }
 
 .l-contact__map {
-    display: none;
     width: 50%;
-
+    height: auto;
 }
