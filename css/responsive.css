@@ -192,6 +192,14 @@
     .l-about__slide-container {
         min-height: 650px;
     }
+
+    .l-footer__nav-link--phone {
+        margin-left: 0;
+    }
+    
+    .l-footer__nav {
+        margin-left: 1.5rem;
+    }
 }
 
 @media (max-width: 350px) {
