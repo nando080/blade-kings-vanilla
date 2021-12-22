@@ -177,6 +177,10 @@
         min-height: 30rem;
     }
 
+    .c-lightbox__button img {
+        width: 3rem;
+    }
+
 }
 
 @media (max-width: 450px) {
