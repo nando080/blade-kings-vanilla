@@ -14,6 +14,10 @@ const totalImagesInGalleries = 24
 
 let currentSlideIndex = 1
 let currentImageGallery = 1
+let isLightBoxActive = false
+
+
+/* SLIDES */
 
 const incrementSlideIndex = () => {
     if (currentSlideIndex < slidesEl.length) {
@@ -43,6 +47,9 @@ let changeSlideInterval = setInterval(() => {
     changeSlide()
 }, slideChangeTime)
 
+
+/* IMAGE GALLERY */
+
 const getSlideGalleryWidth = () => galleryContainerEl.getBoundingClientRect().width
 
 const getNumberOfImagesPerGallery = () => {
@@ -57,12 +64,54 @@ const getNumberOfImagesPerGallery = () => {
 
 const getNumberOfGalleries = () => totalImagesInGalleries / getNumberOfImagesPerGallery()
 
+
+//todo terminar essa função!
+const createLightBoxChangeButton = direction => {
+    const lightBoxButton = document.createElement('div')
+    lightBoxButton.classList.add('c-lightbox__button')
+    lightBoxButton.classList.add('c-lightbox__button--prev')
+    lightBoxButton.innerHTML = '<img src="img/prev-arrow.svg" alt="foto anterior">'
+}
+
+const createLightBox = index => {
+    const lightBoxPrevButton = document.createElement('div')
+    lightBoxPrevButton.classList.add('c-lightbox__button')
+    lightBoxPrevButton.classList.add('c-lightbox__button--prev')
+    lightBoxPrevButton.innerHTML = '<img src="img/prev-arrow.svg" alt="foto anterior">'
+
+    const lightBoxNextButton = document.createElement('div')
+    lightBoxNextButton.classList.add('c-lightbox__button')
+    lightBoxNextButton.classList.add('c-lightbox__button--next')
+    lightBoxNextButton.innerHTML = '<img src="img/prev-arrow.svg" alt="próxima foto">'
+
+    const lightBoxImage = document.createElement('img')
+    lightBoxImage.classList.add('c-lightbox__img')
+    lightBoxImage.src = `img/gallery/img-${index}.jpg`
+
+    const lightBoxImageContainer = document.createElement('div')
+    lightBoxImageContainer.classList.add('c-lightbox__img-container')
+
+    lightBoxImageContainer.appendChild(lightBoxPrevButton)
+    lightBoxImageContainer.appendChild(lightBoxNextButton)
+    lightBoxImageContainer.appendChild(lightBoxImage)
+
+    const lightBox = document.createElement('div')
+    lightBox.classList.add('c-lightbox')
+    lightBox.appendChild(lightBoxImageContainer)
+
+    document.querySelector('body').appendChild(lightBox)
+    
+}
+
 const createImageElement = index => {
     const imgElement = document.createElement('img')
     const formatedIndex = index >= 10 ? index : `0${index}`
     imgElement.src = `img/gallery/img-${formatedIndex}-thumb.jpg`
     imgElement.dataset.img = `${index}`
     imgElement.classList.add('l-gallery__img')
+    imgElement.addEventListener('click', () => {
+        createLightBox(formatedIndex)
+    })
     return imgElement
 }
 
