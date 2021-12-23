@@ -8,6 +8,8 @@ const galleryTrackEl = document.querySelector('.l-gallery__track')
 const indexButtonsContainerEl = document.querySelector('.l-gallery__index-button-container')
 const prevGalleryButtonEl = document.querySelector('.l-gallery__button--prev')
 const nextGalleryButtonEl = document.querySelector('.l-gallery__button--next')
+const lightBoxEl = document.querySelector('.c-lightbox')
+const lightBoxImgEl = document.querySelector('.c-lightbox__img')
 
 const slideChangeTime = 5000
 const totalImagesInGalleries = 24
@@ -72,7 +74,7 @@ const createImageElement = index => {
     imgElement.dataset.img = `${index}`
     imgElement.classList.add('l-gallery__img')
     imgElement.addEventListener('click', () => {
-        createLightBox(formatedIndex)
+        activeLightBox(index)
     })
     return imgElement
 }
@@ -153,6 +155,19 @@ const changeImageGallery = index => {
         currentImageGallery = index
     }
 }
+
+
+/* LIGHTBOX */
+
+const activeLightBox = index => {
+    const currentIndex = Number(index) < 10 ? `0${index}` : index
+    lightBoxImgEl.src = `img/gallery/img-${currentIndex}.jpg`
+    document.querySelector('body').classList.add('is-locked')
+    lightBoxEl.classList.add('is-active')
+}
+
+
+/* EVENTS */
 
 slideButtonsEl.forEach(button => {
     button.addEventListener('click', () => {

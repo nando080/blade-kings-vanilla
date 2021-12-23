@@ -28,6 +28,9 @@ html {
 
 body {
     background-color: var(--darker-color);
+}
+
+body.is-locked {
     overflow: hidden;
 }
 
@@ -791,9 +794,11 @@ body {
     right: 0;
     z-index: 1000;
     background-color: rgba(0,0,0,.85);
+    padding: 1.5rem;
+    display: none;
 }
 
-.c-lightbox,
+.c-lightbox.is-active,
 .c-lightbox__img-container {
     display: flex;
     justify-content: center;
@@ -801,8 +806,6 @@ body {
 }
 
 .c-lightbox__img-container {
-    max-width: 1200px;
-    max-height: 90vh;
     border: 3px solid var(--neutral-color);
     border-radius: 5px;
     position: relative;
@@ -812,6 +815,7 @@ body {
     width: auto;
     height: auto;
     max-height: calc(90vh - 6px);
+    max-width: 100%;
 }
 
 .c-lightbox__button {
