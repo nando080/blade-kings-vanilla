@@ -28,9 +28,6 @@ html {
 
 body {
     background-color: var(--darker-color);
-}
-
-body.is-locked {
     overflow: hidden;
 }
 
@@ -46,6 +43,7 @@ body.is-locked {
     grid-template-columns: repeat(12, 1fr);
     gap: 3rem;
 }
+
 
 /* HERO */
 
@@ -793,7 +791,6 @@ body.is-locked {
     right: 0;
     z-index: 1000;
     background-color: rgba(0,0,0,.85);
-    padding: 1.5rem;
 }
 
 .c-lightbox,
@@ -812,10 +809,9 @@ body.is-locked {
 }
 
 .c-lightbox__img {
-    width: 100%;
+    width: auto;
     height: auto;
     max-height: calc(90vh - 6px);
-    max-width: calc(1200px - 6px);
 }
 
 .c-lightbox__button {
