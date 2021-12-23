@@ -796,6 +796,7 @@ body.is-locked {
     background-color: rgba(0,0,0,.85);
     padding: 1.5rem;
     display: none;
+    animation: opacityshow .5s;
 }
 
 .c-lightbox.is-active,
@@ -849,4 +850,9 @@ body.is-locked {
 
 .c-lightbox__button--next:hover img {
     transform: scale(.9) rotate(180deg);
+}
+
+@keyframes opacityshow {
+    from {opacity: 0;}
+    to {opacity: 1}
 }
