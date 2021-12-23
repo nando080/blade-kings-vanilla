@@ -9,7 +9,9 @@ const indexButtonsContainerEl = document.querySelector('.l-gallery__index-button
 const prevGalleryButtonEl = document.querySelector('.l-gallery__button--prev')
 const nextGalleryButtonEl = document.querySelector('.l-gallery__button--next')
 const lightBoxEl = document.querySelector('.c-lightbox')
-const lightBoxImgEl = document.querySelector('.c-lightbox__img')
+const lightBoxImageEl = document.querySelector('.c-lightbox__img')
+const lightBoxPrevButton = document.querySelector('.c-lightbox__button--prev')
+const lightBoxNextButton = document.querySelector('.c-lightbox__button--next')
 
 const slideChangeTime = 5000
 const totalImagesInGalleries = 24
@@ -17,6 +19,7 @@ const totalImagesInGalleries = 24
 let currentSlideIndex = 1
 let currentImageGallery = 1
 let isLightBoxActive = false
+let currentLightBoxImage = 1
 
 
 /* SLIDES */
@@ -74,7 +77,7 @@ const createImageElement = index => {
     imgElement.dataset.img = `${index}`
     imgElement.classList.add('l-gallery__img')
     imgElement.addEventListener('click', () => {
-        activeLightBox(index)
+        showLightBox(index)
     })
     return imgElement
 }
@@ -159,15 +162,65 @@ const changeImageGallery = index => {
 
 /* LIGHTBOX */
 
-const activeLightBox = index => {
-    const currentIndex = Number(index) < 10 ? `0${index}` : index
-    lightBoxImgEl.src = `img/gallery/img-${currentIndex}.jpg`
+const hideLightBox = () => {
+    if (isLightBoxActive) {
+        document.querySelector('body').classList.remove('is-locked')
+        lightBoxEl.classList.remove('is-active')
+        isLightBoxActive = false
+    }
+}
+
+const showLightBox = index => {
+    currentLightBoxImage = Number(index)
+    const currentIndex = currentLightBoxImage < 10 ? `0${index}` : index
+    lightBoxImageEl.src = `img/gallery/img-${currentIndex}.jpg`
     document.querySelector('body').classList.add('is-locked')
     lightBoxEl.classList.add('is-active')
+    isLightBoxActive = true
+}
+
+const changeLightBoxImage = direction => {
+    if (direction === 'prev') {
+        if (currentLightBoxImage > 1) {
+            currentLightBoxImage -= 1
+            const currentImageIndex = currentLightBoxImage < 10 ? `0${currentLightBoxImage}` : currentLightBoxImage
+            lightBoxImageEl.src = `img/gallery/img-${currentImageIndex}.jpg`
+            return
+        }
+    }
+
+    if (direction === 'next') {
+        if (currentLightBoxImage < totalImagesInGalleries) {
+            currentLightBoxImage += 1
+            const currentImageIndex = currentLightBoxImage < 10 ? `0${currentLightBoxImage}` : currentLightBoxImage
+            lightBoxImageEl.src = `img/gallery/img-${currentImageIndex}.jpg`
+            return
+        }
+    }
 }
 
 
 /* EVENTS */
+
+lightBoxPrevButton.addEventListener('click', () => {
+    changeLightBoxImage('prev')
+})
+
+lightBoxNextButton.addEventListener('click', () => {
+    changeLightBoxImage('next')
+})
+
+lightBoxEl.addEventListener('click', event => {
+    if (event.target.classList.contains('c-lightbox')) {
+        hideLightBox()
+    }
+})
+
+window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        hideLightBox()
+    }
+})
 
 slideButtonsEl.forEach(button => {
     button.addEventListener('click', () => {
