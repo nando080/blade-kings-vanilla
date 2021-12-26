@@ -309,19 +309,19 @@
             <h1 class="c-section-title">agende um horário</h1>
             <form action="" class="l-schedule__form">
                 <div class="l-schedule__input-box">
-                    <input type="text" name="name" class="l-schedule__input" id="name" placeholder="Nome">
+                    <input type="text" name="name" class="l-schedule__input" id="name" placeholder="Nome" data-js="name">
                     <p class="l-schedule__error-message">Erro no input</p>
                 </div>
                 <div class="l-schedule__input-box">
-                    <input type="tel" name="phone" class="l-schedule__input" id="phone" placeholder="(34)9999-0000">
+                    <input type="tel" name="phone" class="l-schedule__input" id="phone" placeholder="Celular: (00)0000-0000" data-js="phone">
                     <p class="l-schedule__error-message">Erro no input</p>
                 </div>
                 <div class="l-schedule__input-box">
-                    <input type="email" name="email" class="l-schedule__input" id="email" placeholder="email@email.com">
+                    <input type="email" name="email" class="l-schedule__input" id="email" placeholder="email@email.com" data-js="email">
                     <p class="l-schedule__error-message">Erro no input</p>
                 </div>
                 <div class="l-schedule__input-box">
-                    <select name="services" class="l-schedule__input">
+                    <select name="services" class="l-schedule__input" data-js="services">
                     <option class="l-schedule__option" value="" disabled selected>Serviço</option>
                     <option class="l-schedule__option" value="">Corte / manutenção cabelo</option>
                     <option class="l-schedule__option" value="">Corte / manutenção barba</option>
@@ -332,14 +332,14 @@
                 <p class="l-schedule__error-message">Erro no input</p>
                 </div>
                 <div class="l-schedule__input-box">
-                    <input type="datetime-local" name="date" class="l-schedule__input" id="date">
+                    <input type="datetime-local" name="date" class="l-schedule__input" id="date" data-js="date">
                     <p class="l-schedule__error-message">Erro no input</p>
                 </div>
                 <div class="l-schedule__input-box">
                     <p class="l-schedule__error-message">Erro no input</p>
                     <textarea name="observations" class="l-schedule__input" id="" cols="30" rows="10" placeholder="Obervações"></textarea>
                 </div>
-                <input type="submit" value="agendar horário" class="c-cta-button c-cta-button--filled">
+                <input type="submit" value="agendar horário" class="c-cta-button c-cta-button--filled" data-js="form-submit">
             </form>
         </div>
 
@@ -415,5 +415,6 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script src="js/test.js"></script>
 </body>
 </html>

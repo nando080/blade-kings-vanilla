@@ -12,6 +12,8 @@ const lightBoxEl = document.querySelector('.c-lightbox')
 const lightBoxImageEl = document.querySelector('.c-lightbox__img')
 const lightBoxPrevButton = document.querySelector('.c-lightbox__button--prev')
 const lightBoxNextButton = document.querySelector('.c-lightbox__button--next')
+const formFieldsEl = document.querySelectorAll('.l-schedule__input')
+const formSubmitButtonEl = document.querySelector('[data-js="form-submit"]')
 
 const slideChangeTime = 5000
 const totalImagesInGalleries = 24
@@ -126,7 +128,6 @@ const indexButtonGalleryClick = event => {
     })
     event.target.classList.add('is-active')
     currentImageGallery = Number(index)
-    console.log(index, currentImageGallery)
 }
 
 const createGalleryIndexButton = index => {
@@ -200,7 +201,65 @@ const changeLightBoxImage = direction => {
 }
 
 
+/* FORM */
+const formValidator = {
+    nameErrorMessage: '*Digite um nome válido',
+    phoneErrorMessage: '*Digite um número de celular válido',
+    emailErrorMessage: '*Digite um endereço de e-mail válido',
+    servicesErrorMessage: '*Selecione algum serviço',
+    dateErrorMessage: '*Selecione uma data e horário válidos',
+
+    showErrorMessage(field) {
+        field.classList.add('l-schedule__input--error')
+        const fieldName = field.dataset.js
+        const messagePlaceholder = field.parentNode.querySelector('.l-schedule__error-message')
+        messagePlaceholder.innerText = formValidator[`${fieldName}ErrorMessage`]
+        messagePlaceholder.classList.add('is-active')
+    },
+
+    checkEmptyField (field) {
+        let isInvalidField = false
+        if (field.dataset.js === 'services') {
+            if (field.selectedIndex === 0) {
+                isInvalidField = true;
+            }
+        } else {
+            const condition = field.value === '' || field.value === null || field.value === undefined
+            if (condition) {
+                isInvalidField = true
+            }
+        }
+        return isInvalidField
+    },
+
+    checkName (field) {
+        let isInvalidField = false
+        console.log()
+        if (this.checkEmptyField(field)) {
+            isInvalidField = true
+            return isInvalidField
+        }
+        if (field.value.length <= 2) {
+            isInvalidField = true
+            return isInvalidField
+        }
+        if (/\d/.test(field.value)) {
+            isInvalidField = true
+            return isInvalidField
+        }
+        return isInvalidField
+    }
+}
+
+
 /* EVENTS */
+
+formSubmitButtonEl.addEventListener('click', event => {
+    event.preventDefault()
+    /* const test = formValidator.checkName(formFieldsEl[0])
+    console.log(test); */
+    formValidator.showErrorMessage(formFieldsEl[1])
+})
 
 lightBoxPrevButton.addEventListener('click', () => {
     changeLightBoxImage('prev')
