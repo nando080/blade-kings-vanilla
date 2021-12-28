@@ -12,7 +12,7 @@ const lightBoxEl = document.querySelector('.c-lightbox')
 const lightBoxImageEl = document.querySelector('.c-lightbox__img')
 const lightBoxPrevButton = document.querySelector('.c-lightbox__button--prev')
 const lightBoxNextButton = document.querySelector('.c-lightbox__button--next')
-const formFieldsEl = document.querySelectorAll('.l-schedule__input')
+const formInputsEl = document.querySelectorAll('.l-schedule__input')
 const formSubmitButtonEl = document.querySelector('[data-js="form-submit"]')
 
 const slideChangeTime = 5000
@@ -202,6 +202,7 @@ const changeLightBoxImage = direction => {
 
 
 /* FORM */
+
 const formValidator = {
     nameErrorMessage: '*Digite um nome válido',
     phoneErrorMessage: '*Digite um número de celular válido',
@@ -209,45 +210,124 @@ const formValidator = {
     servicesErrorMessage: '*Selecione algum serviço',
     dateErrorMessage: '*Selecione uma data e horário válidos',
 
-    showErrorMessage(field) {
-        field.classList.add('l-schedule__input--error')
-        const fieldName = field.dataset.js
-        const messagePlaceholder = field.parentNode.querySelector('.l-schedule__error-message')
-        messagePlaceholder.innerText = formValidator[`${fieldName}ErrorMessage`]
+    showErrorMessage(input) {
+        input.classList.add('l-schedule__input--error')
+        const inputName = input.dataset.js
+        const messagePlaceholder = input.parentNode.querySelector('.l-schedule__error-message')
+        messagePlaceholder.innerText = formValidator[`${inputName}ErrorMessage`]
         messagePlaceholder.classList.add('is-active')
     },
 
-    checkEmptyField (field) {
-        let isInvalidField = false
-        if (field.dataset.js === 'services') {
-            if (field.selectedIndex === 0) {
-                isInvalidField = true;
-            }
-        } else {
-            const condition = field.value === '' || field.value === null || field.value === undefined
-            if (condition) {
-                isInvalidField = true
-            }
-        }
-        return isInvalidField
+    clearErrorMessage(input) {
+        input.classList.remove('l-schedule__input--error')
+        const messagePlaceholder = input.parentNode.querySelector('.l-schedule__error-message')
+        messagePlaceholder.classList.remove('is-active')
     },
 
-    checkName (field) {
-        let isInvalidField = false
-        console.log()
-        if (this.checkEmptyField(field)) {
-            isInvalidField = true
-            return isInvalidField
+    //TODO tirar lógica do select
+    isEmptyInput(input) {
+        let isEmpty = false
+        if (input.dataset.js === 'services') {
+            if (input.selectedIndex === 0) {
+                isEmpty = true;
+            }
+        } else {
+            const condition = input.value === '' || input.value === null || input.value === undefined
+            if (condition) {
+                isEmpty = true
+            }
         }
-        if (field.value.length <= 2) {
-            isInvalidField = true
-            return isInvalidField
+        return isEmpty
+    },
+
+    isNameValid(input) {
+        let isNameOk = true
+        if (this.isEmptyInput(input)) {
+            isNameOk = false
+            return isNameOk
         }
-        if (/\d/.test(field.value)) {
-            isInvalidField = true
-            return isInvalidField
+        if (input.value.length <= 2) {
+            isNameOk = false
+            return isNameOk
         }
-        return isInvalidField
+        if (/\d/.test(input.value)) {
+            isNameOk = false
+            return isNameOk
+        }
+        return isNameOk
+    },
+
+    isPhoneValid(input) {
+        let isPhoneOk = true
+        const phoneRegEx =  /^\(?([0-9]{2})\)?[-. ]?([0-9]{5})[-. ]?([0-9]{4})$/
+        if (this.isEmptyInput(input)) {
+            isPhoneOk = false
+            return isPhoneOk
+        }
+        if (!phoneRegEx.test(input.value)) {
+            isPhoneOk = false
+            return isPhoneOk
+        }
+        return isPhoneOk
+    },
+
+    isEmailValid(input) {
+        let isEmailOk = true
+        const emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (this.isEmptyInput(input)) {
+            isEmailOk = false
+            return isEmailOk
+        }
+        if (!emailRegEx.test(input.value)) {
+            isEmailOk = false
+            return isEmailOk
+        }
+        return isEmailOk
+    },
+
+    isServicesValid(input) {
+        return input.selectedIndex !== 0
+    },
+
+    isDateValid(input) {
+        let isDateOk = true
+        const inputDateValue = input.value
+        if (this.isEmptyInput(input)) {
+            isDateOk = false
+            return isDateOk
+        }
+        const dateRegEx = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/
+        if (!dateRegEx.test(inputDateValue)) {
+            isDateOk = false
+            return isDateOk
+        }
+        const inputYear = Number(inputDateValue.slice(0, 4))
+        const inputMonth = Number(inputDateValue.slice(5, 7))
+        const inputDay = Number(inputDateValue.slice(8, 10))
+        const inputHour = Number(inputDateValue.slice(11, 13))
+        const inputMinute = Number(inputDateValue.slice(14, 16))
+        console.log(inputYear, inputMonth, inputDay, inputHour, inputMinute, inputDateValue)
+        if (inputYear < Number(new Date().getFullYear())) {
+            isDateOk = false
+            return isDateOk
+        }
+        if (inputYear === Number(new Date().getFullYear()) && (inputMonth - 1) < Number(new Date().getMonth())) {
+            isDateOk = false
+            return isDateOk
+        }
+        if (inputMonth - 1 === Number(new Date().getMonth()) && inputDay < Number(new Date().getDate())) {
+            isDateOk = false
+            return isDateOk
+        }
+        if (inputDay === Number(new Date().getDate()) && inputHour < Number(new Date().getHours())) {
+            isDateOk = false
+            return isDateOk
+        }
+        if (inputHour === Number(new Date().getHours()) && inputMinute < Number(new Date().getMinutes())) {
+            isDateOk = false
+            return isDateOk
+        }
+        return isDateOk
     }
 }
 
@@ -256,9 +336,8 @@ const formValidator = {
 
 formSubmitButtonEl.addEventListener('click', event => {
     event.preventDefault()
-    /* const test = formValidator.checkName(formFieldsEl[0])
-    console.log(test); */
-    formValidator.showErrorMessage(formFieldsEl[1])
+    const test = formValidator.isDateValid(formInputsEl[4])
+    console.log(test)
 })
 
 lightBoxPrevButton.addEventListener('click', () => {
