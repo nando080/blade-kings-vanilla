@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blade Kings</title>
+    <link rel="shortcut icon" href="img/crown-ico.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header class="l-hero" id="hero">
+        
+        <nav class="l-hero__nav">
+            <ul class="l-hero__navbar">
+                <li class="l-hero__nav-item"><a class="l-hero__nav-link" href="#hero">kings</a></li>
+                <li class="l-hero__nav-item"><a class="l-hero__nav-link" href="#services">serviços</a></li>
+                <li class="l-hero__nav-item"><a class="l-hero__nav-link" href="#work">nosso trampo</a></li>
+                <li class="l-hero__nav-item"><a class="l-hero__nav-link" href="#team">equipe</a></li>
+                <li class="l-hero__nav-item"><a class="l-hero__nav-link" href="#prices">preços</a></li>
+                <li class="l-hero__nav-item"><a class="l-hero__nav-link" href="#contact">contato</a></li>
+                <li class="l-hero__nav-item"><a class="l-hero__nav-link" href="tel:+5534999990000"><span class="fab fa-whatsapp"></span> 34 99999-0000</a></li>
+            </ul>
+            <div class="l-hero__burger-button">
+                <div class="l-hero__burger-bar"></div>
+                <div class="l-hero__burger-bar"></div>
+                <div class="l-hero__burger-bar"></div>
+            </div>
+        </nav>
+
+        <div class="l-hero__content u-container u-grid">
+            <div class="l-hero__logo">
+                <img src="img/the-blade-kings-logo.svg" alt="The Blade Kings Beard Club" class="l-hero__logo-img">
+            </div>
+            <div class="l-hero__info">
+                <h1 class="l-hero__title">tratamento real</h1>
+                <p class="l-hero__text">
+                    a melhor experiência do barbear tradicional!
+                </p>
+                <a href="#schedule" class="c-cta-button">marque seu horário</a>
+            </div>
+        </div>
+
+        <div class="l-hero__scroll-icon">
+            <img class="l-hero__scroll-img" src="img/mouse.svg" alt="role para ver mais">
+            <img class="l-hero__scroll-img" src="img/arrow.svg" alt="role para ver mais">
+        </div>
+
+    </header>
+
+    <section class="l-about">
+
+        <div class="l-about__slide-container u-container">
+
+
+            <div class="l-about__button l-about__button--prev" data-js="prev">
+                <img src="img/prev-arrow-black.svg" alt="slide anterior" data-js="prev">
+            </div>
+            <div class="l-about__button l-about__button--next" data-js="next">
+                <img src="img/prev-arrow-black.svg" alt="próximo slide" data-js="next">
+            </div>
+
+
+            <div class="l-about__slide u-grid is-active">
+                <picture class="l-about__slide-img">
+                    <source srcset="img/slide-01-a.jpg" media="(max-width: 450px)">
+                    <source srcset="img/slide-01-b.jpg" media="(max-width: 960px)">
+                    <img src="img/slide-01-a.jpg" alt="nosso castelo">
+                </picture>
+                <div class="l-about__slide-info">
+                    <h1 class="l-about__slide-title">nosso castelo</h1>
+                    <p class="l-about__slide-text">
+                        Inspirada nas barbearias tradicionais dos anos 50 e movida a Rock n’ Roll, a KINGS oferece uma experiência única com serviço de excelência e um ambiente foda para o seu conforto.
+                    </p>
+                </div>
+            </div>
+            <div class="l-about__slide u-grid">
+                <picture class="l-about__slide-img">
+                    <source srcset="img/slide-02-a.jpg" media="(max-width: 450px)">
+                    <source srcset="img/slide-02-b.jpg" media="(max-width: 960px)">
+                    <img src="img/slide-02-a.jpg" alt="nosso castelo">
+                </picture>
+                <div class="l-about__slide-info">
+                    <h1 class="l-about__slide-title">os reis</h1>
+                    <p class="l-about__slide-text">
+                        Nossa equipe, muito mais que capacitada com técnicas do <span>“old”</span> e do <span>“new school”</span> são capazes de agradar até aos reis mais exigentes.
+                    </p>
+                </div>
+            </div>
+            <div class="l-about__slide u-grid">
+                <picture class="l-about__slide-img">
+                    <source srcset="img/slide-03-a.jpg" media="(max-width: 450px)">
+                    <source srcset="img/slide-03-b.jpg" media="(max-width: 960px)">
+                    <img src="img/slide-03-a.jpg" alt="nosso castelo">
+                </picture>
+                <div class="l-about__slide-info">
+                    <h1 class="l-about__slide-title">nosso reino</h1>
+                    <p class="l-about__slide-text">
+                        Somos referência em corte e barbear masculino, aqui você pode encontrar o seu estilo!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="l-services" id="services">
+
+        <h1 class="c-section-title">nossos serviços</h1>
+
+        <div class="l-services__container u-container u-grid">
+
+            <div class="l-services__item l-services__cut">
+                <div class="l-services__bg"></div>
+                <div class="l-services__img">
+                    <img src="img/scissors.svg" alt="corte">
+                </div>
+                <hr>
+                <h2 class="l-services__item-title">corte</h2>
+                <p class="l-services__item-text">
+                    Cortes modernos ou tradicionais, feitos com máquina ou tesoura.
+                </p>
+            </div>
+            <div class="l-services__item l-services__maintenance">
+                <div class="l-services__bg"></div>
+                <div class="l-services__img">
+                    <img src="img/shaving-machine.svg" alt="manutenção">
+                </div>
+                <hr>
+                <h2 class="l-services__item-title">manutenção</h2>
+                <p class="l-services__item-text">
+                    Ajustes para fazer a forma do penteado ou do barbear terem uma duração maior, ou para dar forma durante a fase de crescimento.
+                </p>
+            </div>
+            <div class="l-services__item l-services__shave">
+                <div class="l-services__bg"></div>
+                <div class="l-services__img">
+                    <img src="img/razor.svg" alt="barbear">
+                </div>
+                <hr>
+                <h2 class="l-services__item-title">barbear</h2>
+                <p class="l-services__item-text">
+                    Seja para deixar uma barba modelada e imponente, ou para ficar com o rosto mais liso que um bebê, a Kings é o lugar certo para você.
+                </p>
+            </div>
+            <div class="l-services__item l-services__care">
+                <div class="l-services__bg"></div>
+                <div class="l-services__img">
+                    <img src="img/dryer.svg" alt="cuidados">
+                </div>
+                <hr>
+                <h2 class="l-services__item-title">cuidados</h2>
+                <p class="l-services__item-text">
+                    O cabelo e a barba masculinos também necessitam de cuidados como hidratação, selagem e outros para se manterem fortes e brilhosos.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="l-gallery" id="work">
+
+        <h1 class="c-section-title">nosso trampo</h1>
+
+        <div class="l-gallery__container u-container">
+            <div class="l-gallery__track">
+               <!--  <div class="l-gallery__item" data-gallery="1">
+                    <img class="l-gallery__img" src="img/gallery/img-01-thumb.jpg" data-img="1">
+                    <img class="l-gallery__img" src="img/gallery/img-02-thumb.jpg" data-img="2">
+                    <img class="l-gallery__img" src="img/gallery/img-03-thumb.jpg" data-img="3">
+                    <img class="l-gallery__img" src="img/gallery/img-04-thumb.jpg" data-img="4">
+                    <img class="l-gallery__img" src="img/gallery/img-05-thumb.jpg" data-img="5">
+                    <img class="l-gallery__img" src="img/gallery/img-06-thumb.jpg" data-img="6">
+                    <img class="l-gallery__img" src="img/gallery/img-07-thumb.jpg" data-img="7">
+                    <img class="l-gallery__img" src="img/gallery/img-08-thumb.jpg" data-img="8">
+                    <img class="l-gallery__img" src="img/gallery/img-09-thumb.jpg" data-img="9">
+                    <img class="l-gallery__img" src="img/gallery/img-10-thumb.jpg" data-img="10">
+                    <img class="l-gallery__img" src="img/gallery/img-11-thumb.jpg" data-img="11">
+                    <img class="l-gallery__img" src="img/gallery/img-12-thumb.jpg" data-img="12">
+                </div>
+                <div class="l-gallery__item" data-gallery="2">
+                    <img class="l-gallery__img" src="img/gallery/img-13-thumb.jpg" data-img="13">
+                    <img class="l-gallery__img" src="img/gallery/img-14-thumb.jpg" data-img="14">
+                    <img class="l-gallery__img" src="img/gallery/img-15-thumb.jpg" data-img="15">
+                    <img class="l-gallery__img" src="img/gallery/img-16-thumb.jpg" data-img="16">
+                    <img class="l-gallery__img" src="img/gallery/img-17-thumb.jpg" data-img="17">
+                    <img class="l-gallery__img" src="img/gallery/img-18-thumb.jpg" data-img="18">
+                    <img class="l-gallery__img" src="img/gallery/img-19-thumb.jpg" data-img="19">
+                    <img class="l-gallery__img" src="img/gallery/img-20-thumb.jpg" data-img="20">
+                    <img class="l-gallery__img" src="img/gallery/img-21-thumb.jpg" data-img="21">
+                    <img class="l-gallery__img" src="img/gallery/img-22-thumb.jpg" data-img="22">
+                    <img class="l-gallery__img" src="img/gallery/img-23-thumb.jpg" data-img="23">
+                    <img class="l-gallery__img" src="img/gallery/img-24-thumb.jpg" data-img="24">
+                </div> -->
+            </div>
+        </div>
+
+        <div class="l-gallery__index">
+            <div class="l-gallery__button l-gallery__button--direction l-gallery__button--prev"></div>
+            <div class="l-gallery__index-button-container">
+                <!-- <div class="l-gallery__button l-gallery__button--index is-active"></div>
+                <div class="l-gallery__button l-gallery__button--index"></div>
+                <div class="l-gallery__button l-gallery__button--index"></div> -->
+            </div>
+            <div class="l-gallery__button l-gallery__button--direction l-gallery__button--next"></div>
+        </div>
+
+    </section>
+
+    <section class="l-team" id="team">
+
+        <h1 class="c-section-title">nossa equipe</h1>
+        
+        <div class="l-team__container u-container">
+            <div class="l-team__item">
+                <img src="img/team-01.jpg" alt="Toni" class="l-team__img">
+                <div class="l-team__info-container">
+                    <h2 class="l-team__name">Toni Monteiro</h2>
+                    <p class="l-team__social">
+                        <span class="fab fa-instagram"></span>
+                        @tonibrabo
+                    </p>
+                </div>
+            </div>
+            <div class="l-team__item">
+                <img src="img/team-02.jpg" alt="Ramon" class="l-team__img">
+                <div class="l-team__info-container">
+                    <h2 class="l-team__name">Ramon Valdez</h2>
+                    <p class="l-team__social">
+                        <span class="fab fa-instagram"></span>
+                        @madrugastyle
+                    </p>
+                </div>
+            </div>
+            <div class="l-team__item">
+                <img src="img/team-03.jpg" alt="Henrique" class="l-team__img">
+                <div class="l-team__info-container">
+                    <h2 class="l-team__name">Henrique Froganço</h2>
+                    <p class="l-team__social">
+                        <span class="fab fa-instagram"></span>
+                        @barberchef
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="l-prices u-container" id="prices">
+
+        <div class="l-prices__img-container">
+            <!-- <img src="img/prices.jpg" alt="nossos preços" class="l-prices__img"> -->
+        </div>
+
+        <div class="l-prices__info-container">
+
+            <h1 class="c-section-title">nossos preços</h1>
+
+            <ul class="l-prices__list">
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Corte</p>
+                    <p class="l-prices__text l-prices__text--value">50,00</p>
+                </li>
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Manutenção de corte</p>
+                    <p class="l-prices__text l-prices__text--value">30,00</p>
+                </li>
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Raspagem completa</p>
+                    <p class="l-prices__text l-prices__text--value">40,00</p>
+                </li>
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Manutenção barba</p>
+                    <p class="l-prices__text l-prices__text--value">50,00</p>
+                </li>
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Raspagem barba</p>
+                    <p class="l-prices__text l-prices__text--value">40,00</p>
+                </li>
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Hidratação cabelo</p>
+                    <p class="l-prices__text l-prices__text--value">80,00</p>
+                </li>
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Hidratação barba</p>
+                    <p class="l-prices__text l-prices__text--value">120,00</p>
+                </li>
+                <li class="l-prices__item">
+                    <p class="l-prices__text">Selagem cabelo</p>
+                    <p class="l-prices__text l-prices__text--value">120,00</p>
+                </li>
+            </ul>
+
+            <a href="#schedule" class="c-cta-button c-cta-button--filled">marque seu horário</a>
+
+        </div>
+
+    </section>
+
+    <section class="l-schedule" id="schedule">
+
+        <div class="l-schedule__container u-container">
+            <h1 class="c-section-title">agende um horário</h1>
+            <form action="" class="l-schedule__form">
+                <div class="l-schedule__input-box">
+                    <input type="text" name="name" class="l-schedule__input" id="name" placeholder="Nome" data-js="name">
+                    <p class="l-schedule__error-message">Erro no input</p>
+                </div>
+                <div class="l-schedule__input-box">
+                    <input type="tel" name="phone" class="l-schedule__input" id="phone" placeholder="Celular: (00)0000-0000" data-js="phone">
+                    <p class="l-schedule__error-message">Erro no input</p>
+                </div>
+                <div class="l-schedule__input-box">
+                    <input type="email" name="email" class="l-schedule__input" id="email" placeholder="email@email.com" data-js="email">
+                    <p class="l-schedule__error-message">Erro no input</p>
+                </div>
+                <div class="l-schedule__input-box">
+                    <select name="services" class="l-schedule__input" data-js="services">
+                    <option class="l-schedule__option" value="" disabled selected>Serviço</option>
+                    <option class="l-schedule__option" value="">Corte / manutenção cabelo</option>
+                    <option class="l-schedule__option" value="">Corte / manutenção barba</option>
+                    <option class="l-schedule__option" value="">Hidratação cabelo</option>
+                    <option class="l-schedule__option" value="">Hidratação barba</option>
+                    <option class="l-schedule__option" value="">Selagem</option>
+                </select>
+                <p class="l-schedule__error-message">Erro no input</p>
+                </div>
+                <div class="l-schedule__input-box">
+                    <input type="datetime-local" name="date" class="l-schedule__input" id="date" data-js="date">
+                    <p class="l-schedule__error-message">Erro no input</p>
+                </div>
+                <div class="l-schedule__input-box">
+                    <p class="l-schedule__error-message">Erro no input</p>
+                    <textarea name="observations" class="l-schedule__input" id="" cols="30" rows="10" placeholder="Obervações" data-js="observations"></textarea>
+                </div>
+                <input type="submit" value="agendar horário" class="c-cta-button c-cta-button--filled" data-js="form-submit">
+            </form>
+        </div>
+
+    </section>
+
+    <section class="l-contact u-container" id="contact">
+
+        <div class="l-contact__info-container">
+            
+            <img class="l-contact__logo" src="img/the-blade-kings-logo.svg" alt="The Blade Kings">
+            
+            <ul class="l-contact__nav">
+                <li class="l-contact__nav-item">
+                    <a href="http://www.instagram.com/" target="_blank" class="l-contact__nav-link">
+                        <i class="fab fa-instagram"></i>@thebladekingsbeard
+                    </a>
+                </li>
+                <li class="l-contact__nav-item">
+                    <a href="tel:+5534999990000" class="l-contact__nav-link">
+                        <i class="fab fa-whatsapp"></i>34 99999-0000
+                    </a>
+                </li>
+                <li class="l-contact__nav-item">
+                    <a href="mailto: email@email.com" class="l-contact__nav-link">
+                        <i class="far fa-envelope"></i>contato@bladekings.com
+                    </a>
+                </li>
+                <li class="l-contact__nav-item">
+                    <a href="https://www.google.com/maps/place/Araguari,+MG/@-18.639482,-48.193223,12z/data=!4m5!3m4!1s0x94a431cbe31b42d9:0x7002857c6864593e!8m2!3d-18.6458648!4d-48.1979912?hl=pt-BR" target="_blank" class="l-contact__nav-link">
+                        <i class="fas fa-map-marker-alt"></i> Rua das Andorinhas, 42 - Araguari/MG
+                    </a>
+                </li>
+            </ul>
+
+            <a href="#schedule" class="c-cta-button">marque seu horário</a>
+
+            
+        </div>
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60488.76515940823!2d-48.22824239122202!3d-18.639397328936408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a431cbe31b42d9%3A0x7002857c6864593e!2sAraguari%2C%20MG!5e0!3m2!1spt-BR!2sbr!4v1639735291574!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="l-contact__map"></iframe>
+    </section>
+
+    <footer class="l-footer u-container">
+        <img class="l-footer__logo" src="img/the-blade-kings-logo.svg" alt="The Blade Kings">
+        <nav class="l-footer__nav">
+            <ul class="l-footer__nav-list">
+                <li class="l-footer__nav-item">
+                    <a href="#services" class="l-footer__nav-link">serviços</a>
+                </li>
+                <li class="l-footer__nav-item">
+                    <a href="#team" class="l-footer__nav-link">equipe</a>
+                </li>
+                <li class="l-footer__nav-item">
+                    <a href="#prices" class="l-footer__nav-link">preços</a>
+                </li>
+            </ul>
+            <a href="tel:+5534999990000" class="l-footer__nav-link l-footer__nav-link--phone"><i class="fab fa-whatsapp"></i>(34)99999-0000</a>
+        </nav>
+    </footer>
+    
+    <div class="c-lightbox">
+
+        <div class="c-lightbox__img-container">
+            <div class="c-lightbox__button c-lightbox__button--prev">
+                <img src="img/prev-arrow.svg" alt="foto anterior">
+            </div>
+            <div class="c-lightbox__button c-lightbox__button--next">
+                <img src="img/prev-arrow.svg" alt="próxima foto">
+            </div>
+            <img src="img/gallery/img-01.jpg" alt="" class="c-lightbox__img">
+        </div>
+
+    </div>
+
+    <div class="c-confirmation">
+        <div class="c-confirmation__container">
+            <p class="c-confirmation__message">Uma mensagem com a confirmação do seu horário será enviada por e-mail.</p>
+            <a href="#" class="c-cta-button c-cta-button--filled" data-js="confirmation">concluir</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
