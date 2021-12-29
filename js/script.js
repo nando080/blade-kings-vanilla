@@ -14,6 +14,9 @@ const lightBoxPrevButton = document.querySelector('.c-lightbox__button--prev')
 const lightBoxNextButton = document.querySelector('.c-lightbox__button--next')
 const formInputsEl = document.querySelectorAll('.l-schedule__input')
 const formSubmitButtonEl = document.querySelector('[data-js="form-submit"]')
+const confirmationMessageEl = document.querySelector('.c-confirmation')
+const confirmationMessageButtonEl = document.querySelector('[data-js="confirmation"]')
+console.log(confirmationMessageEl, confirmationMessageButtonEl)
 
 const slideChangeTime = 5000
 const totalImagesInGalleries = 24
@@ -342,15 +345,30 @@ const formValidator = {
     },
 
     validateAllInputs(inputs) {
+        let isFormOk = true
         inputs.forEach(input => {
-            this.validateSingleInput(input)
+            const result = this.validateSingleInput(input)
+            if (!result) {
+                isFormOk = false
+            }
         })
+        return isFormOk
     }
 
 }
 
+const showConfirmationMessage = () => {
+    document.querySelector('body').classList.add('is-locked')
+    confirmationMessageEl.classList.add('is-active')
+}
+
+const hideConfirmationMessage = () => {
+    document.querySelector('body').classList.remove('is-locked')
+    confirmationMessageEl.classList.remove('is-active')
+}
 
 /* EVENTS */
+confirmationMessageButtonEl.addEventListener('click', hideConfirmationMessage)
 
 formInputsEl.forEach(input => {
     input.addEventListener('focusout', () => {
@@ -360,8 +378,10 @@ formInputsEl.forEach(input => {
 
 formSubmitButtonEl.addEventListener('click', event => {
     event.preventDefault()
-    const test = formValidator.validateAllInputs(formInputsEl)
-    console.log(test);
+    const result = formValidator.validateAllInputs(formInputsEl)
+    if (result) {
+        showConfirmationMessage()
+    }
 })
 
 lightBoxPrevButton.addEventListener('click', () => {
