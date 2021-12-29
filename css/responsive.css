@@ -113,10 +113,6 @@
         grid-column: span 2;
     }
 
-    .l-gallery__image-gallery {
-        gap: 1.5rem;
-    }
-
     .l-prices {
         flex-direction: column;
     }
@@ -148,10 +144,6 @@
         min-height: 500px;
     }
 
-    .l-gallery__image-gallery {
-        grid-template-columns: 1fr 1fr;
-    }
-
     .l-prices__list > * {
         margin-bottom: 1.5rem;
     }
@@ -181,6 +173,13 @@
         width: 3rem;
     }
 
+}
+
+@media (max-width: 578px) {
+    .l-gallery__item {
+        grid-template-columns: repeat(auto-fit, minmax(calc(50% - 3rem), 1fr));
+        gap: 1.5rem;
+    }
 }
 
 @media (max-width: 450px) {

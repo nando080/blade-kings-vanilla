@@ -227,7 +227,6 @@ const formValidator = {
         messagePlaceholder.classList.remove('is-active')
     },
 
-    //TODO tirar lógica do select
     isEmptyInput(input) {
         let isEmpty = false
         const condition = input.value === '' || input.value === null || input.value === undefined
