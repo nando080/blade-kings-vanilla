@@ -227,15 +227,9 @@ const formValidator = {
     //TODO tirar lógica do select
     isEmptyInput(input) {
         let isEmpty = false
-        if (input.dataset.js === 'services') {
-            if (input.selectedIndex === 0) {
-                isEmpty = true;
-            }
-        } else {
-            const condition = input.value === '' || input.value === null || input.value === undefined
-            if (condition) {
-                isEmpty = true
-            }
+        const condition = input.value === '' || input.value === null || input.value === undefined
+        if (condition) {
+            isEmpty = true
         }
         return isEmpty
     },
@@ -306,7 +300,6 @@ const formValidator = {
         const inputDay = Number(inputDateValue.slice(8, 10))
         const inputHour = Number(inputDateValue.slice(11, 13))
         const inputMinute = Number(inputDateValue.slice(14, 16))
-        console.log(inputYear, inputMonth, inputDay, inputHour, inputMinute, inputDateValue)
         if (inputYear < Number(new Date().getFullYear())) {
             isDateOk = false
             return isDateOk
@@ -328,16 +321,47 @@ const formValidator = {
             return isDateOk
         }
         return isDateOk
+    },
+
+    validateSingleInput(input) {
+        let isValidInput = true
+        if (input.dataset.js === 'observations') {
+            return isValidInput
+        }
+        /* capitalize first letter of dataset */
+        const inputDataset = input.dataset.js
+        const capitalizedInputDataset = inputDataset.charAt(0).toUpperCase() + inputDataset.slice(1)
+        const validateResult = formValidator[`is${capitalizedInputDataset}Valid`](input)
+        if (!validateResult) {
+            this.showErrorMessage(input)
+            isValidInput = false
+        } else {
+            this.clearErrorMessage(input)
+        }
+        return isValidInput
+    },
+
+    validateAllInputs(inputs) {
+        inputs.forEach(input => {
+            this.validateSingleInput(input)
+        })
     }
+
 }
 
 
 /* EVENTS */
 
+formInputsEl.forEach(input => {
+    input.addEventListener('focusout', () => {
+        formValidator.validateSingleInput(input)
+    })
+})
+
 formSubmitButtonEl.addEventListener('click', event => {
     event.preventDefault()
-    const test = formValidator.isDateValid(formInputsEl[4])
-    console.log(test)
+    const test = formValidator.validateAllInputs(formInputsEl)
+    console.log(test);
 })
 
 lightBoxPrevButton.addEventListener('click', () => {

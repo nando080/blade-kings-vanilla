@@ -37,3 +37,9 @@ const dia = dataTeste.slice(8, 10)
 const hora = dataTeste.slice(11, 13)
 const minutos = dataTeste.slice(14, 16)
 /* console.log(ano, mes, dia, hora, minutos); */
+
+/* const string1 = 'teste'
+console.log(string1.charAt(0))
+console.log(string1.slice(1))
+const string2 = string1.charAt(0).toUpperCase() + string1.slice(1)
+console.log(string2) */
